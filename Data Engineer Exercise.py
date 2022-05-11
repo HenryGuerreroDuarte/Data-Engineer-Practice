@@ -37,8 +37,9 @@ df_agg.head()
 
 #Aggregates stats about when people in the dataset were acquired
 
-
-
+# check 'create_dt' or 'modified_dt' repeats
+# record dates that are used 
+# count days that are repeated 
 
 #Create 'acquisition_facts.csv' file
 df_agg.to_csv('acquisition_facts.csv' , index = False)
