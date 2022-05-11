@@ -2,7 +2,7 @@ from cgi import print_arguments
 import pandas as pd
 
 ### cons_email=                         email,create_dt,modified_dt
-### cons_email_chapter_subscritions=    isunsub
+### cons_email_chapter_subscritions=    isunsub     1 = is unsubscribed         and         0 = is subscribed
 ### cons=                               source
 
 #Read and obtain columns fron differnt csv files
@@ -21,6 +21,30 @@ print(df_1)
 df_1.to_csv('people.csv' , index = False)
 
 #-------------------------------------------------------------------------------------------
+
+#Read and obtain columns csv file 'people'
+df_agg = pd.read_csv('people.csv', usecols = ['create_dt','isunsub'])
+
+# Rename columns
+#   create_dt  ->  acquisition_date
+#   isunsub    ->  acquisitions
+
+df_agg.rename(
+    columns=({'create_dt' : 'acquisition_date', 'isunsub' : 'acquisitions'  }),
+    inplace=True,
+)
+df_agg.head()
+
+#Aggregates stats about when people in the dataset were acquired
+
+
+
+
+#Create 'acquisition_facts.csv' file
+df_agg.to_csv('acquisition_facts.csv' , index = False)
+
+
+
 
 
 
