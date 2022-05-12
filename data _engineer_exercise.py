@@ -43,10 +43,3 @@ df_agg.head()
 
 #Create 'acquisition_facts.csv' file
 df_agg.to_csv('acquisition_facts.csv' , index = False)
-
-
-
-
-
-
-
