@@ -23,7 +23,7 @@ df_1.to_csv('people.csv' , index = False)
 #-------------------------------------------------------------------------------------------
 
 #Read and obtain columns csv file 'people'
-df_agg = pd.read_csv('people.csv', usecols = ['create_dt','isunsub'])
+df_agg = pd.read_csv('people.csv', usecols = ['create_dt'])
 
 # Rename columns
 #   create_dt  ->  acquisition_date
@@ -36,6 +36,12 @@ df_agg.rename(
 df_agg.head()
 
 #Aggregates stats about when people in the dataset were acquired
+
+df["create_dt"] = df["create_dt"] [5:16]
+# save this as 
+df["create_dt"].value_counts() 
+
+
 
 # check 'create_dt' or 'modified_dt' repeats
 # record dates that are used 
